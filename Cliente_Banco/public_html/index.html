@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html ng-app="Emprestimo">
+    <head>
+        <title>Clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="jquery/jquery.js"></script>
+        <script src="angular-1.6.3/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <style>
+            .jumbotron {
+                width: 400px;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h2{
+                color: black;
+            }
+        </style>
+        <script>
+            angular.module("Emprestimo", []);
+            angular.module("Emprestimo").controller("EmprestimoCtrl", function ($scope) {
+
+            });
+        </script>
+    </head>
+    <body>
+        <div ng-controller="EmprestimoCtrl as vm"> 
+            <div class="jumbotron"> 
+                <script type="text/javascript">
+
+                            $(document).ready(function () {
+
+                                $('#contaForm').submit(function () {
+                                    if (($('#senha1').val()) !== ($('#senha2').val())) {
+                                        //$('#mensagem').text("As senhas devem ser iguais");
+                                        alert('Diferentes');
+                                        return false;
+                                    }
+
+                                });
+                            });
+
+                </script>
+
+                <form name="contaForm" id="contaForm" action="Solicitação.html">
+                    <h2>Conta</h2>
+                    <input type="text" class="form-control" name="conta" placeholder="Digite o numero da sua conta" required/><br>
+                    <input type="password" id="senha1" class="form-control" name="senha1" placeholder="Digite sua senha" ng-model="vm.senha1" required="true" ng-minlength="6"/><br>
+                    <input type="password" id="senha2" class="form-control" name="senha2" placeholder="Confirme sua senha" ng-model="vm.senha2" required=""/>
+                    <br><input type="submit" class="btn btn-primary btn-block" value="Entrar" ng-disabled="!contaForm.$valid"/>
+                </form>
+            </div>
+        </div> 
+
+    </body>
+</html>
